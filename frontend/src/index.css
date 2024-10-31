@@ -2,21 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --primary: rgb(125, 214, 173);
   --primary-hover: rgb(77, 192, 181);
   --bg-widget: rgb(52, 52, 52);
+  --background: rgb(28,28,28)
 }
-
 
 @layer base {
   body {
-    background-color: rgb(28, 28, 28);
+    background-color: var(--background);
   }
 }
 
 @layer components {
   .widget {
     background-color: var(--bg-widget);
+  }
+}
+
+@layer utilities {
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-widget);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
   }
 }

@@ -1,5 +1,9 @@
 export const mainMenu = [
     {
+      label: "Calendar",
+      to: "/calendar",
+    },
+    {
       label: "Tours",
       to: "/tours",
     },
@@ -38,12 +42,8 @@ export const mainMenu = [
 
   export const userMenu = [
     {
-      label: "PINNED",
-      to: "/pinned",
-    },
-    {
-      label: "GROUPS",
-      to: "/shanghai",
+      label: "SCHEDULE",
+      to: "/schedule",
     },
     {
       label: "SETTINGS",
