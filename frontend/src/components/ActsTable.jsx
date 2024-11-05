@@ -24,17 +24,6 @@ const ActsTable = () => {
     }
   };
 
-  const getWeekRange = (date) => {
-    const current = new Date(date);
-    const weekStart = new Date(current);
-    weekStart.setDate(current.getDate() - current.getDay());
-    const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekStart.getDate() + 6);
-    return {
-      start: weekStart.toLocaleDateString(),
-      end: weekEnd.toLocaleDateString(),
-    };
-  };
 
   const hours = [
     "12:00",

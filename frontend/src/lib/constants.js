@@ -4,12 +4,8 @@ export const mainMenu = [
       to: "/calendar",
     },
     {
-      label: "Tours",
-      to: "/tours",
-    },
-    {
-      label: "Radio",
-      to: "/radio",
+      label: "Dashboard",
+      to: "/me/home",
     },
     {
       label: "Labels",
