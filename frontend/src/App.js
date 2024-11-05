@@ -4,17 +4,20 @@ import UserDashboard from "./pages/UserDashboard";
 import Calendar from "./pages/Calendar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 
 const App = () => {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route index path={'/'} element={<Homepage />} />
+      <Routes>
+        <Route index path={'/'} element={<Homepage />} />
+        <Route path={'/calendar'} element={<Calendar />} />
+        <Route path={'/login'} element={<Login />} />
+        <Route path={'/register'} element={<Register />} />
+        <Route element={<ProtectedRoutes />}>
           <Route path={'/me/home'} element={<UserDashboard />} />
-          <Route path={'/calendar'} element={<Calendar />} />
-          <Route path={'/login'} element={<Login />} />
-          <Route path={'/register'} element={<Register />} />
-        </Routes>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
