@@ -31,7 +31,6 @@ const Login = () => {
       if (logUser) {
         localStorage.setItem("token", logUser.token)
         localStorage.setItem("userData", JSON.stringify(logUser.userData) )
-        console.log(localStorage)
         dispatch(login())
       }
     } catch (error) {

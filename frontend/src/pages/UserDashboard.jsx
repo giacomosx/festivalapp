@@ -1,5 +1,5 @@
 import Layout from "../Layout";
-import UserNavbar from "../layouts/UserNavbar";
+import UserNavbar from "../ui/UserNavbar";
 import Widget from "../layouts/Widget";
 import { userState } from "../redux/loginSlice";
 import { useSelector } from "react-redux";

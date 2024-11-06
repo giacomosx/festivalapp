@@ -5,6 +5,7 @@ import Calendar from "./pages/Calendar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
+import Settings from "./pages/Settings";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path={'/register'} element={<Register />} />
         <Route element={<ProtectedRoutes />}>
           <Route path={'/me/home'} element={<UserDashboard />} />
+          <Route path={'/me/settings'} element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

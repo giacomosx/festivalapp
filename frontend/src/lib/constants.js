@@ -38,11 +38,15 @@ export const mainMenu = [
 
   export const userMenu = [
     {
+      label: "HOME",
+      to: "/me/home",
+    },
+    {
       label: "SCHEDULE",
       to: "/schedule",
     },
     {
       label: "SETTINGS",
-      to: "/settings",
+      to: "/me/settings",
     }
   ]

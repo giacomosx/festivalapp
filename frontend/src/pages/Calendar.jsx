@@ -1,4 +1,4 @@
-import ActsTable from "../components/ActsTable";
+import ActsTable from "../ui/ActsTable";
 import Layout from "../Layout";
 
 const Calendar = () => {
