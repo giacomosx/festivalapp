@@ -5,6 +5,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String,
+        required: false
+    },
     email: {
         type: String,
         required: true,
@@ -13,8 +17,13 @@ const UserSchema = new mongoose.Schema({
         type: String,    
         required: true
     },
-    avatar: {
-        type: String
+    bio: {
+        type: String, 
+        required: false,
+    },
+    location: {
+        type: String,
+        required: false,
     },
     phone_number: {
         type: String,    

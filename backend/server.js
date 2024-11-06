@@ -4,6 +4,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user')
+
+const authMidd = require('./middlewares/tokenController')
 
 const server = express();
 const PORT = process.env.PORT || 5001;
@@ -12,6 +15,10 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api/v1/auth', authRoutes);
+
+server.use(authMidd.verifyToken)
+
+server.use('/api/v1/user', userRoutes)
 
 const startServer = async () => {
     try {
