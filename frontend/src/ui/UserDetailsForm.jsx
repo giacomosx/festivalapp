@@ -16,7 +16,7 @@ const UserDetailsForm = () => {
     const getUser = async () => {
         try {
             const response = await api.get('/user/me')
-            setDefaultValue(response)
+            await setDefaultValue(response)
         } catch (e) {
             console.log(e)
             setError(e)
@@ -30,6 +30,7 @@ const UserDetailsForm = () => {
         setLoading(true);
         try {
             const editUser = await api.patch('/user/me/edit', editValue);
+            await getUser()
         } catch (e) {
             console.log(e);
             setError(e);

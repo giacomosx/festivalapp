@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Layout from "../Layout";
 import AxiosApi from "../api/axiosApi";
 import { useState } from "react";
+import Spinner from "../components/Spinner";
 
 const Register = () => {
   const api = new AxiosApi();
@@ -130,7 +131,7 @@ const Register = () => {
                 </button>
             )}
             {loading && (
-                <span className="w-8 h-8 border-2 border-primary rounded-full border-b-transparent animate-spin"></span>
+                <Spinner />
             )}
             {success && (
                 <span className="text-green-500 border p-2 px-4 text-sm rounded border-green-500 w-fit">
