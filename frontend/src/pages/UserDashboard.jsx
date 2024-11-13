@@ -1,6 +1,6 @@
 import Layout from "../Layout";
 import UserNavbar from "../ui/UserNavbar";
-import Widget from "../layouts/Widget";
+import Widget from "../components/Widget";
 import { userState } from "../redux/loginSlice";
 import { useSelector } from "react-redux";
 
@@ -10,7 +10,7 @@ const UserDashboard = () => {
   return (
     <Layout>
       <UserNavbar user={user}/>
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pb-8">
         <Widget name={"My Festivals"} className="h-60">
            
         </Widget>

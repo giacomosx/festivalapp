@@ -1,6 +1,6 @@
-const Input = ({ onChange, placeholder, type, name, required, className, disabled, value }) => {
+const Input = ({ onChange, placeholder, type, name, required, className, disabled, value, defaultValue }) => {
   const baseSyle =
-    "bg-gray-50 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 ";
+    "disabled:opacity-50 bg-gray-50 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 ";
 
   return (
     <input
@@ -12,6 +12,7 @@ const Input = ({ onChange, placeholder, type, name, required, className, disable
       required={required}
       disabled={disabled}
       value={value}
+      defaultValue={defaultValue}
     />
   );
 };

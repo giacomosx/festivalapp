@@ -4,6 +4,7 @@ import AxiosApi from "../api/axiosApi";
 import { login } from "../redux/loginSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Spinner from "../components/Spinner";
 
 const Login = () => {
   const api = new AxiosApi();
@@ -91,17 +92,19 @@ const Login = () => {
             </Link>
           </div>
           <div className="flex flex-col justify-between w-full md:items-center md:flex-row space-y-4 md:space-y-0">
-            <button
-              type="submit"
-              className=" text-gray-900 bg-primary hover:bg-primaryHover focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center "
-            >
-              Log in
-            </button>
+            {!loading && (
+                <button
+                    type="submit"
+                    className=" text-gray-900 bg-primary hover:bg-primaryHover focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center "
+                >
+                  Log in
+                </button>
+            )}
             {loading && (
-              <span className="w-8 h-8 border-2 border-primary rounded-full border-b-transparent animate-spin"></span>
+                <Spinner/>
             )}
             {error && (
-              <span className="text-red-500 border p-2 px-4 text-sm rounded border-red-500 w-fit">
+                <span className="text-red-500 border p-2 px-4 text-sm rounded border-red-500 w-fit">
                 {error}
               </span>
             )}

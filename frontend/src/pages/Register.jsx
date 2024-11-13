@@ -121,17 +121,19 @@ const Register = () => {
             </Link>
           </div>
           <div className="flex flex-col justify-between w-full md:items-center md:flex-row space-y-4 md:space-y-0">
-            <button
-              type="submit"
-              className=" shrink-0 text-gray-900 bg-primary hover:bg-primaryHover focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center "
-            >
-              Register now
-            </button>
+            {!loading && (
+                <button
+                    type="submit"
+                    className=" shrink-0 text-gray-900 bg-primary hover:bg-primaryHover focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center "
+                >
+                  Register now
+                </button>
+            )}
             {loading && (
-              <span className="w-8 h-8 border-2 border-primary rounded-full border-b-transparent animate-spin"></span>
+                <span className="w-8 h-8 border-2 border-primary rounded-full border-b-transparent animate-spin"></span>
             )}
             {success && (
-              <span className="text-green-500 border p-2 px-4 text-sm rounded border-green-500 w-fit">
+                <span className="text-green-500 border p-2 px-4 text-sm rounded border-green-500 w-fit">
                 {success}
               </span>
             )}
