@@ -15,7 +15,7 @@ const Avatar = () => {
       {!isLoggedin ? (
           <ion-icon name="person"></ion-icon>
       ) : (
-          getInitials(user?.name)
+          getInitials(user?.username ||user?.name)
       )}
     </Link>
   );
