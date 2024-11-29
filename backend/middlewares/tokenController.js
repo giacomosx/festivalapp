@@ -14,6 +14,7 @@ const verifyToken = async (req, res, next) => {
                     req.user = {
                         userId: decoded.userId,
                         email: decoded.email,
+                        role: decoded.role
                     };
 
                     next()

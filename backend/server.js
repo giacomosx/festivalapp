@@ -4,9 +4,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
+const publicRoutes = require('./routes/public');
 const userRoutes = require('./routes/user')
+const eventRoutes = require('./routes/event');
+const organizationRoutes = require('./routes/organization');
 
-const authMidd = require('./middlewares/tokenController')
+const authMid = require('./middlewares/tokenController')
 
 const server = express();
 const PORT = process.env.PORT || 5001;
@@ -15,10 +18,13 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api/v1/auth', authRoutes);
+server.use('/api/v1/public', publicRoutes);
 
-server.use(authMidd.verifyToken)
+server.use(authMid.verifyToken)
 
 server.use('/api/v1/user', userRoutes)
+server.use('/api/v1/event', eventRoutes)
+server.use('/api/v1/organization', organizationRoutes)
 
 const startServer = async () => {
     try {
