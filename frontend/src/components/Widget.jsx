@@ -1,4 +1,4 @@
-const Widget = ({children, name, buttonLabel, onClick, className = ''}) => {
+const Widget = ({children, name, buttonLabel, onClick, className = '', bodyClassName = ''}) => {
     
     const baseStyle = "widget w-full p-4 rounded-2xl max-w-xl "
     
@@ -13,7 +13,9 @@ const Widget = ({children, name, buttonLabel, onClick, className = ''}) => {
             ) :
             ''}
             </div>
-            {children}
+            <div className={bodyClassName}>
+                {children}
+            </div>
         </section>
      );
 }

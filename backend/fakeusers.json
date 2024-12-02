@@ -1,0 +1,102 @@
+[
+  {
+    "username": "john_doe",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "123456",
+    "bio": "Software developer and coffee enthusiast.",
+    "location": "New York, USA",
+    "phone_number": "123-456-7890",
+    "role": "user"
+  },
+  {
+    "username": "jane_smith",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "123456",
+    "bio": "Graphic designer with a passion for typography.",
+    "location": "London, UK",
+    "phone_number": "987-654-3210",
+    "role": "user"
+  },
+  {
+    "username": "alex_wong",
+    "name": "Alex Wong",
+    "email": "alex.wong@example.com",
+    "password": "123456",
+    "bio": "Frontend developer specializing in React.",
+    "location": "San Francisco, USA",
+    "phone_number": "555-123-4567",
+    "role": "editor"
+  },
+  {
+    "username": "emily_clark",
+    "name": "Emily Clark",
+    "email": "emily.clark@example.com",
+    "password": "123456",
+    "bio": "Marketing specialist and yoga instructor.",
+    "location": "Berlin, Germany",
+    "phone_number": null,
+    "role": "user"
+  },
+  {
+    "username": "mike_jordan",
+    "name": "Mike Jordan",
+    "email": "mike.jordan@example.com",
+    "password": "123456",
+    "bio": "Tech enthusiast and part-time blogger.",
+    "location": "Toronto, Canada",
+    "phone_number": "111-222-3333",
+    "role": "user"
+  },
+  {
+    "username": "sophia_mills",
+    "name": "Sophia Mills",
+    "email": "sophia.mills@example.com",
+    "password": "123456",
+    "bio": "Data scientist and AI enthusiast.",
+    "location": "Sydney, Australia",
+    "phone_number": null,
+    "role": "user"
+  },
+  {
+    "username": "jake_adams",
+    "name": "Jake Adams",
+    "email": "jake.adams@example.com",
+    "password": "123456",
+    "bio": "Full-stack developer and gamer.",
+    "location": "Dublin, Ireland",
+    "phone_number": "444-555-6666",
+    "role": "user"
+  },
+  {
+    "username": "chloe_lee",
+    "name": "Chloe Lee",
+    "email": "chloe.lee@example.com",
+    "password": "123456",
+    "bio": "UX designer with a love for minimalism.",
+    "location": "Seoul, South Korea",
+    "phone_number": "777-888-9999",
+    "role": "user"
+  },
+  {
+    "username": "liam_brown",
+    "name": "Liam Brown",
+    "email": "liam.brown@example.com",
+    "password": "123456",
+    "bio": "Cybersecurity expert.",
+    "location": "Singapore",
+    "phone_number": null,
+    "role": "editor"
+  },
+  {
+    "username": "olivia_white",
+    "name": "Olivia White",
+    "email": "olivia.white@example.com",
+    "password": "123456",
+    "bio": "Photographer and world traveler.",
+    "location": "Cape Town, South Africa",
+    "phone_number": "123-987-6543",
+    "role": "user"
+  }
+]

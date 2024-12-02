@@ -42,8 +42,8 @@ export const mainMenu = [
       to: "/me/home",
     },
     {
-      label: "SCHEDULE",
-      to: "/schedule",
+      label: "USERS",
+      to: "/me/users",
     },
     {
       label: "SETTINGS",

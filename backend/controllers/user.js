@@ -24,6 +24,33 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+const getUserByQuery = async (req, res) => {
+    const { username } = req.query
+
+    try {
+        const users = await User.find({username: {$regex : username, $options: 'i'} }).limit(10)
+        res.status(200).json(users)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json({message: e.message})
+    }
+}
+
+const getUserById = async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const user = await User.findById(id)
+        if (!user) {
+            return res.status(400).json({message: 'Invalid User Id!'})
+        }
+        res.status(200).json(user)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json({message: e.message})
+    }
+}
+
 const editUser = async (req, res) => {
     try {
         const user = await User.findById(req.user.userId)
@@ -54,9 +81,12 @@ const deleteUser = async (req, res) => {
     }
 }
 
+
 module.exports = {
     getUser,
+    getUserById,
     getAllUsers,
+    getUserByQuery,
     editUser,
     deleteUser
 }

@@ -17,7 +17,7 @@ const UserDashboard = () => {
   return (
     <Layout>
       <UserNavbar user={user} />
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pb-8">
+      <section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 pb-8">
         <Widget name={"My Festivals"} className="h-60">
            
         </Widget>

@@ -9,7 +9,7 @@ const Settings = () => {
   return (
     <Layout>
       <UserNavbar user={user} />
-      <section className={'flex flex-col md:flex-row justify-between gap-8 pb-8'}>
+      <section className={'grid grid-cols-1 gap-8 md:grid-cols-2 pb-8'}>
           <Widget name={"My details"}>
               <UserDetailsForm user={user}/>
           </Widget>
@@ -20,7 +20,6 @@ const Settings = () => {
              <Widget name={"Change Password"} className={'h-fit'}>
 
              </Widget>
-
          </div>
       </section>
     </Layout>

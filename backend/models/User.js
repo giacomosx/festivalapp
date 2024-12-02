@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema({
         email: {
             type: String,
             required: true,
+            unique: true
         },
         password: {
             type: String,
@@ -48,11 +49,11 @@ const UserSchema = new mongoose.Schema({
         }],
         events: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Events'
+            ref: 'Event'
         }],
         pinned_acts: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Acts'
+            ref: 'Event'
         }],
     },
     {

@@ -28,8 +28,10 @@ const EventSchema = new mongoose.Schema({
             default: '',
         },
         acts: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Event',
+            name: String,
+            start_date: String,
+            end_date: String,
+            stage: String,
         }],
         participants: [{
             type: mongoose.Schema.Types.ObjectId,
