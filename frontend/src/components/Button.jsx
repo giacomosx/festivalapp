@@ -1,6 +1,6 @@
 const variantStyles = {
-  primary: "bg-primary hover:bg-primaryHover focus:ring-primary",
-  secondary: "bg-black border border-primary focus:ring-primary text-primary",
+  primary: "bg-primary hover:bg-primary-hover focus:ring-primary text-gray-900",
+  secondary: "bg-black focus:ring-primary text-gray-300 border border-gray-500 hover:bg-primary hover:text-black hover:border-transparent",
   danger: "bg-red-500 text-white focus:ring-red-500 hover:bg-white hover:text-red-500",
 };
 
@@ -13,7 +13,7 @@ const Button = ({
   disabled,
 }) => {
   const baseStye =
-    "text-gray-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center ";
+    "focus:ring-1 focus:outline-none rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center transition-all duration-200";
   const variantClasses = variantStyles[variant] || variantStyles["primary"];
 
   return (

@@ -1,14 +1,12 @@
-import Layout from "../Layout";
-import UserNavbar from "../ui/UserNavbar";
 import Widget from "../components/Widget";
 import UserDetailsForm from "../ui/UserDetailsForm";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 const Settings = () => {
   const user = JSON.parse(localStorage.getItem("userData"));
 
   return (
-    <Layout>
-      <UserNavbar user={user} />
+    <DashboardLayout breadCrumb={false}>
       <section className={'grid grid-cols-1 gap-8 md:grid-cols-2 pb-8'}>
           <Widget name={"My details"}>
               <UserDetailsForm user={user}/>
@@ -22,7 +20,7 @@ const Settings = () => {
              </Widget>
          </div>
       </section>
-    </Layout>
+    </DashboardLayout>
   );
 };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { mainMenu, festivals } from "../lib/constants";
 import Avatar from "./Avatar";
+import LogInButton from "./LogInButton";
 
 const Menu = () => {
   const [mainMenuOpen, setMainMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Menu = () => {
         >
           Tickets
         </Link>
-        <Avatar />
+        <LogInButton />
         <button
           data-collapse-toggle="mega-menu"
           type="button"

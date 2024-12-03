@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
+import UserProfile from "./pages/UserProfile";
 
 const App = () => {
   return (
@@ -18,8 +19,9 @@ const App = () => {
         <Route path={'/register'} element={<Register />} />
         <Route element={<ProtectedRoutes />}>
           <Route path={'/me/home'} element={<UserDashboard />} />
-          <Route path={'/me/users'} element={<Users />} />
           <Route path={'/me/settings'} element={<Settings />} />
+          <Route path={'/community/users'} element={<Users />} />
+          <Route path={'/community/profile/:id'} element={<UserProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>

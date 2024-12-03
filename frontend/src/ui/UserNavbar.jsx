@@ -15,7 +15,7 @@ const UserNavbar = ({user}) => {
         <h2 className="text-xl font-bold">{'Hello ' + user?.username || null}</h2>
         <button
           onClick={handleLogout}
-          className="text-white border border-white  hover:bg-gray-900 focus:ring-1 focus:ring-gray-300 font-medium rounded-full text-sm px-2 py-2 md:px-5 md:py-2.5 focus:outline-none"
+          className="text-white border border-white hover:border-black hover:bg-primary hover:text-black focus:ring-1 focus:ring-gray-300 font-medium rounded-full text-sm px-2 py-2 md:px-5 md:py-2.5 focus:outline-none"
         >
           Log out
         </button>

@@ -43,7 +43,7 @@ export const mainMenu = [
     },
     {
       label: "USERS",
-      to: "/me/users",
+      to: "/community/users",
     },
     {
       label: "SETTINGS",

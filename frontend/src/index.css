@@ -5,7 +5,7 @@
 
 :root {
   --primary: rgb(125, 214, 173);
-  --primary-hover: rgb(77, 192, 181);
+  --primary-hover: rgb(125, 214, 173, 0.8);
   --bg-widget: rgb(52, 52, 52);
   --background: rgb(28,28,28)
 }
