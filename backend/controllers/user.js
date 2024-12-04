@@ -14,6 +14,24 @@ const getUser = async (req, res) => {
 
 }
 
+const getUserFriends = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.userId).populate({
+            path: 'friends',
+            select: 'username avatar name ',
+            options: {sort: {updatedAt: -1}}
+        })
+
+        if (!user) res.status(401).json('Invalid user Id')
+
+        res.status(200).json(user)
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message })
+    }
+
+}
+
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find()
@@ -88,5 +106,6 @@ module.exports = {
     getAllUsers,
     getUserByQuery,
     editUser,
-    deleteUser
+    deleteUser,
+    getUserFriends
 }

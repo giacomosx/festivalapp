@@ -6,6 +6,7 @@ import AxiosApi from "../api/axiosApi";
 import Spinner from "../components/Spinner";
 import UsersListEl from "../components/UsersListEl";
 import DashboardLayout from "../layouts/DashboardLayout";
+import FriendsList from "../ui/FriendsList";
 
 const Users = () => {
     const [query, setQuery] = useState("");
@@ -38,12 +39,13 @@ const Users = () => {
     return (
         <DashboardLayout breadCrumb={false}>
             <section className={'grid md:grid-cols-2 gap-8'}>
-                <Widget name={"Find a user"} className="h-fit" bodyClassName={'flex gap-4 flex-col md:flex-row'}>
-                    <Input type={'search'} placeholder={'Type an username...'} onChange={handleChange} required/>
-                    <Button onClick={getUsers}>
-                        Search
-                    </Button>
-                </Widget>
+                <div className="flex flex-col gap-8 items-center">
+                    <Widget name={"Find a user"} className="h-fit" bodyClassName={'flex gap-4 flex-col md:flex-row'}>
+                        <Input type={'search'} placeholder={'Type an username...'} onChange={handleChange} required/>
+                        <Button onClick={getUsers}>
+                            Search
+                        </Button>
+                    </Widget>
                     {
                         loading && (
                             <div className={'w-full'}>
@@ -51,25 +53,34 @@ const Users = () => {
                             </div>
                         )
                     }
-                {
-                    usersList && (usersList.length > 0 ? (
-                        <Widget bodyClassName={'flex gap-4'} className={'h-fit'} name={'results'}>
-                            <ul className={'flex flex-col w-full divide-y divide-black'}>
-                                {
-                                    usersList.map((user) => (
-                                        <UsersListEl user={user} key={user._id} />
-                                    ))
-                                }
-                            </ul>
-                        </Widget>
-                    ) : (
-                        <Widget bodyClassName={'flex gap-4'} className={'h-fit'} name={'results'}>
-                            <p className={'text-gray-400 w-full text-center text-lg'}>
-                                No users found!
-                            </p>
-                        </Widget>
-                    ))
-                }
+                    {
+                        usersList && (usersList.length > 0 ? (
+                            <Widget bodyClassName={'flex gap-4'} className={'h-fit'} name={'results'}>
+                                <ul className={'flex flex-col w-full divide-y divide-black'}>
+                                    {
+                                        usersList.map((user) => (
+                                            <UsersListEl user={user} key={user._id} />
+                                        ))
+                                    }
+                                </ul>
+                            </Widget>
+                        ) : (
+                            <Widget bodyClassName={'flex gap-4'} className={'h-fit'} name={'results'}>
+                                <p className={'text-gray-400 w-full text-center text-lg'}>
+                                    No users found!
+                                </p>
+                            </Widget>
+                        ))
+                    }
+                </div>
+                <div className="flex flex-col gap-8 items-center">
+                    <Widget name={'Friends'}>
+                        <FriendsList />
+                    </Widget>
+                    <Widget name={'My Requests'}>
+
+                    </Widget>
+                </div>
             </section>
 
         </DashboardLayout>

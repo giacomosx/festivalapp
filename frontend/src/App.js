@@ -19,8 +19,8 @@ const App = () => {
         <Route path={'/register'} element={<Register />} />
         <Route element={<ProtectedRoutes />}>
           <Route path={'/dashboard/home'} element={<UserDashboard />} />
-          <Route path={'/dashboard/settings'} element={<Settings />} />
           <Route path={'/dashboard/users'} element={<Users />} />
+          <Route path={'/dashboard/settings'} element={<Settings />} />
           <Route path={'/community/profile/:id'} element={<UserProfile />} />
         </Route>
       </Routes>

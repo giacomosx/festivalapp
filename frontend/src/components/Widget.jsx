@@ -1,4 +1,6 @@
-const Widget = ({children, name, buttonLabel, onClick, className = '', bodyClassName = ''}) => {
+import {Link} from "react-router-dom";
+
+const Widget = ({children, name, buttonLabel, path, className = '', bodyClassName = ''}) => {
     
     const baseStyle = "widget w-full p-4 rounded-2xl max-w-xl "
     
@@ -7,13 +9,13 @@ const Widget = ({children, name, buttonLabel, onClick, className = '', bodyClass
             <div className="flex justify-between w-full mb-4">
             <h4 className="uppercase text-sm">{name}</h4>
             {buttonLabel ? (
-                <button onClick={onClick} className="uppercase text-primary text-sm ">
+                <Link to={path} className="uppercase text-primary text-sm ">
                     {buttonLabel}
-                </button>
+                </Link>
             ) :
             ''}
             </div>
-            <div className={bodyClassName}>
+            <div className={bodyClassName + ' overflow-y-scroll'}>
                 {children}
             </div>
         </section>

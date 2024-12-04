@@ -45,6 +45,15 @@ const friendRequestResponse = async (req, res) => {
     try {
         const request = await FriendRequest.findByIdAndUpdate(id, {status: response}, {new: true})
 
+        if (request && response === 'accepted') {
+            const receiver = await User.findById(req.user.userId)
+            const sender = await User.findById(request.senderId)
+            receiver.friends.push(sender._id)
+            sender.friends.push(receiver._id)
+            receiver.save()
+            sender.save()
+        }
+
         return res.status(200).json({request})
     } catch (e) {
         console.log(e)
@@ -57,8 +66,9 @@ const getReceivedRequest = async (req, res) => {
 
     try {
         const requests = await FriendRequest.find({
-            receiverId: userId
-        })
+            receiverId: userId,
+            status: 'pending'
+        }).populate('senderId')
 
         return res.status(200).json(requests)
     } catch (e) {
@@ -73,7 +83,7 @@ const getSentRequest = async (req, res) => {
     try {
         const requests = await FriendRequest.find({
             senderId: userId
-        })
+        }).populate('receiverId')
 
         return res.status(200).json(requests)
     } catch (e) {

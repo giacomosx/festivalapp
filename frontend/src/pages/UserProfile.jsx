@@ -30,7 +30,7 @@ const UserProfile = () => {
     }, [id])
 
     return (
-        <DashboardLayout userNavbar={false}>
+        <DashboardLayout breadCrumb={false} userNavbar={false}>
             <section className="py-8 grid grid-cols-1 gap-8 md:grid-cols-2">
                 <Widget>
                     {loading ? (
