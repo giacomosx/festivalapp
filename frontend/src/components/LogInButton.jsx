@@ -9,7 +9,7 @@ const LogInButton = () => {
 
     return (
         <Link
-            to={isLoggedIn ? '/me/home' : '/login'}
+            to={isLoggedIn ? '/dashboard/home' : '/login'}
             className="w-12 h-12 flex justify-center items-center text-black bg-primary hover:bg-primary-hover focus:ring-4 focus:ring-primary text-lg rounded-full transition-all"
         >
             {!isLoggedIn ? (

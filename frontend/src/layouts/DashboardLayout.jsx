@@ -20,7 +20,7 @@ const DashboardLayout = ({children, breadCrumb = true, userNavbar = true}) => {
             <Header />
             <Main>
                 {breadCrumb && (
-                    <BreadCrumb />
+                    <BreadCrumb user={user} />
                 )}
                 {userNavbar && (
                     <UserNavbar user={user} />

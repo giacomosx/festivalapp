@@ -32,7 +32,7 @@ const UserProfile = () => {
     return (
         <DashboardLayout userNavbar={false}>
             <section className="py-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-                <Widget name={"Details"}>
+                <Widget>
                     {loading ? (
                         <Spinner/>
                     ) : (

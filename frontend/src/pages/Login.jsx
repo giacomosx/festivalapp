@@ -40,7 +40,7 @@ const Login = () => {
       setLoading(false);
     } finally {
       setLoading(false);
-      navigate('/me/home')
+      navigate('/dashboard/home')
     }
   };
 

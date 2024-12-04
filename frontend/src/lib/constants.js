@@ -39,14 +39,14 @@ export const mainMenu = [
   export const userMenu = [
     {
       label: "HOME",
-      to: "/me/home",
+      to: "/dashboard/home",
     },
     {
       label: "USERS",
-      to: "/community/users",
+      to: "/dashboard/users",
     },
     {
       label: "SETTINGS",
-      to: "/me/settings",
+      to: "/dashboard/settings",
     }
   ]
