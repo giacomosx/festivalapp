@@ -3,14 +3,6 @@ export const mainMenu = [
       label: "Calendar",
       to: "/calendar",
     },
-    {
-      label: "Dashboard",
-      to: "/me/home",
-    },
-    {
-      label: "Labels",
-      to: "/labels",
-    },
   ];
   
   export const festivals = [

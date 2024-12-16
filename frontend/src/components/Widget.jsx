@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 const Widget = ({children, name, buttonLabel, path, className = '', bodyClassName = ''}) => {
     
-    const baseStyle = "widget w-full p-4 rounded-2xl max-w-xl "
+    const baseStyle = "widget w-full p-4 rounded-2xl max-w-2xl "
     
     return ( 
         <section className= {baseStyle + className}>

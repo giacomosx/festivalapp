@@ -1,6 +1,6 @@
 const FriendRequest = require('../models/FriendRequest');
 const User = require('../models/User');
-const {getUserById} = require("./user");
+
 
 const addFriendRequest = async (req, res) => {
     const { userId } = req.user;
@@ -11,7 +11,7 @@ const addFriendRequest = async (req, res) => {
         if (!receiverUser) {
             return res.status(400).json('Invalid receiver Id')
         }
-        if (receiverUser.friends.includes(id)) {
+        if (receiverUser.friends.includes(userId)) {
             return res.status(400).json({message: 'You are already friends!'})
         }
 
@@ -22,7 +22,6 @@ const addFriendRequest = async (req, res) => {
         if (request.length > 0) {
             return res.status(401).json({message: 'You are just make a request!'})
         }
-        console.log(request)
 
         const newFriendRequest = await new FriendRequest({
             ...req.body,

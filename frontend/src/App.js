@@ -8,6 +8,7 @@ import ProtectedRoutes from "./middlewares/ProtectedRoutes";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
+import Festivals from "./pages/Festivals";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path={'/calendar'} element={<Calendar />} />
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
+        <Route path={'/festivals'} element={<Festivals />} />
         <Route element={<ProtectedRoutes />}>
           <Route path={'/dashboard/home'} element={<UserDashboard />} />
           <Route path={'/dashboard/users'} element={<Users />} />

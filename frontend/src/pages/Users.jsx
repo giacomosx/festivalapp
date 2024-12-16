@@ -7,6 +7,7 @@ import Spinner from "../components/Spinner";
 import UsersListEl from "../components/UsersListEl";
 import DashboardLayout from "../layouts/DashboardLayout";
 import FriendsList from "../ui/FriendsList";
+import RequestTabs from "../ui/RequestTabs";
 
 const Users = () => {
     const [query, setQuery] = useState("");
@@ -39,7 +40,7 @@ const Users = () => {
     return (
         <DashboardLayout breadCrumb={false}>
             <section className={'grid md:grid-cols-2 gap-8'}>
-                <div className="flex flex-col gap-8 items-center">
+                <div className="flex flex-col gap-8 ">
                     <Widget name={"Find a user"} className="h-fit" bodyClassName={'flex gap-4 flex-col md:flex-row'}>
                         <Input type={'search'} placeholder={'Type an username...'} onChange={handleChange} required/>
                         <Button onClick={getUsers}>
@@ -73,12 +74,12 @@ const Users = () => {
                         ))
                     }
                 </div>
-                <div className="flex flex-col gap-8 items-center">
+                <div className="flex flex-col gap-8">
                     <Widget name={'Friends'}>
                         <FriendsList />
                     </Widget>
                     <Widget name={'My Requests'}>
-
+                        <RequestTabs />
                     </Widget>
                 </div>
             </section>

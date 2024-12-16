@@ -1,12 +1,23 @@
-import { useState } from "react";
+import {useCallback, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { mainMenu, festivals } from "../lib/constants";
-import Avatar from "./Avatar";
+import { mainMenu } from "../lib/constants";
 import LogInButton from "./LogInButton";
+import AxiosApi from "../api/axiosApi";
 
 const Menu = () => {
   const [mainMenuOpen, setMainMenuOpen] = useState(false);
   const [festivalsMenuOpen, setFestivalsMenuOpen] = useState(false);
+  const [festivals, setFestivals] = useState([]);
+  const api = new AxiosApi()
+
+  const getFestivals = async () => {
+    try {
+      const res = await api.get(`/public/events`);
+      setFestivals(res);
+    } catch (e){
+      console.error(e)
+    }
+  }
 
   const handleMainMenu = () => {
     setMainMenuOpen(!mainMenuOpen);
@@ -15,6 +26,10 @@ const Menu = () => {
   const handleFestivalsMenu = () => {
     setFestivalsMenuOpen(!festivalsMenuOpen);
   };
+
+  useEffect(() => {
+    getFestivals();
+  }, [])
 
   return (
     <>
@@ -84,26 +99,34 @@ const Menu = () => {
               </svg>
             </button>
             <div
-              id="mega-menu-dropdown"
+              id="mega"
               className={`${
                 festivalsMenuOpen ? "grid" : "hidden"
-              } absolute z-10 grid w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md md:grid-cols-3 `}
+              } absolute z-10 w-auto text-sm bg-white border border-gray-100 rounded-lg shadow-md  `}
             >
               <div className="p-4  text-gray-900 md:pb-4 ">
                 <ul
-                  className="space-y-4"
-                  aria-labelledby="mega-menu-dropdown-button"
+                    className="space-y-4"
+                    aria-labelledby="mega-menu-dropdown-button"
                 >
+                  <li>
+                    <Link
+                        to={`/festivals/`}
+                        className="text-gray-900  hover:text-primary border-b pb-2 w-full block"
+                    >
+                      All Festivals
+                    </Link>
+                  </li>
                   {festivals.map((el, index) => {
                     return (
-                      <li key={index}>
-                        <Link
-                          to={el.to}
-                          className="text-gray-700  hover:text-primary "
-                        >
-                          {el.label}
-                        </Link>
-                      </li>
+                        <li key={index}>
+                          <Link
+                              to={`/festivals/${el.name.toLowerCase().replace(/ /g, '-')}`}
+                              className="text-gray-600  hover:text-primary w-full block"
+                          >
+                            {el.name}
+                          </Link>
+                        </li>
                     );
                   })}
                 </ul>
@@ -112,10 +135,10 @@ const Menu = () => {
           </li>
           {mainMenu.map((el, index) => {
             return (
-              <li key={index}>
-                <Link
-                  to={el.to}
-                  className="block py-2 px-3 text-gray-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 "
+                <li key={index}>
+                  <Link
+                      to={el.to}
+                      className="block py-2 px-3 text-gray-900  hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 "
                 >
                   {el.label}
                 </Link>

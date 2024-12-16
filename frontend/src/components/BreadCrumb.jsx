@@ -1,14 +1,16 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-const BreadCrumb = ({user}) => {
+const BreadCrumb = ({backgroundColor = 'bg-black'}) => {
+    const isBlack = backgroundColor === 'bg-black';
+    const location = useLocation();
 
     return (
         <nav className="flex mt-4" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li className="inline-flex items-center">
-                    <Link  to="/"
-                       className="inline-flex items-center text-sm font-medium text-white hover:text-primary ">
+                    <Link to="/"
+                          className={`inline-flex items-center text-sm font-medium hover:text-primary ${isBlack ? 'text-white' : 'text-gray-700'} `}>
                         <svg className="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                              fill="currentColor" viewBox="0 0 20 20">
                             <path
@@ -25,20 +27,10 @@ const BreadCrumb = ({user}) => {
                                   d="m1 9 4-4-4-4"/>
                         </svg>
                         <Link to={'/community'}
-                           className="ms-1 text-sm font-medium text-gray-300 hover:text-primary md:ms-2">Community</Link>
+                              className={`ms-1 text-sm font-medium hover:text-primary md:ms-2 ${isBlack ? 'text-gray-300' : 'text-gray-400'} `}>{location.pathname.replaceAll('/', '')}</Link>
                     </div>
                 </li>
-                <li>
-                        <div className="flex items-center">
-                            <svg className="rtl:rotate-180 w-3 h-3 text-gray-500 mx-1" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                      d="m1 9 4-4-4-4"/>
-                            </svg>
-                            <span className="ms-1 text-sm font-medium text-gray-300 md:ms-2">{user?.username}</span>
-                        </div>
-                    </li>
-                </ol>
+            </ol>
         </nav>
 
     );

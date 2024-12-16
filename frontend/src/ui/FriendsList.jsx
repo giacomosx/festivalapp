@@ -15,7 +15,6 @@ const FriendsList = () => {
     const getFriends = async () => {
         try {
             const responses = await api.get(`/user/me/friends`);
-            console.log(responses)
             setFriends(responses.friends)
         } catch (e) {
             console.error(e)
@@ -29,8 +28,6 @@ const FriendsList = () => {
         getFriends()
     }, [])
 
-    console.log(friends)
-
     return (
         <>
             {loading && <Spinner />}
@@ -39,7 +36,7 @@ const FriendsList = () => {
                     <ul className={'flex flex-col w-full divide-y divide-black'}>
                         {
                             friends.map((friend) => (
-                                <UsersListEl user={friend} />
+                                <UsersListEl user={friend} key={friend._id}/>
                             ))
                         }
                     </ul>

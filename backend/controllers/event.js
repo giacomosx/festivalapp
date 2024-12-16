@@ -1,5 +1,6 @@
 const Event = require('../models/Event');
 const User = require('../models/User');
+const Organization = require('../models/Organization');
 
 const getAllEvents = async (req, res) => {
     try {
@@ -22,7 +23,7 @@ const createEvent = async (req, res) => {
         const creator = await User.findById(userId)
 
         if (!creator.organization) {
-            return res.status(401).json({message: 'I must be a part of an organization!'})
+            return res.status(401).json({message: 'You must be a part of an organization!'})
         }
 
         const newEvent = new Event({
@@ -30,6 +31,12 @@ const createEvent = async (req, res) => {
             owner: creator.organization,
         })
         await newEvent.save()
+
+        creator.events.push(newEvent)
+        const organization = await Organization.findById(creator.organization)
+        organization.events.push(newEvent)
+        organization.save()
+        creator.save();
 
         return res.status(200).json(newEvent)
     } catch (e) {

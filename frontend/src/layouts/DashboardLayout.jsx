@@ -5,7 +5,7 @@ import UserNavbar from "../ui/UserNavbar";
 import BreadCrumb from "../components/BreadCrumb";
 import {useDispatch, useSelector} from "react-redux";
 import {userState} from "../redux/loginSlice";
-import {getUSerLogged} from "../redux/action/userAction";
+import {getUSerLogged} from "../redux/actions/userAction";
 
 const DashboardLayout = ({children, breadCrumb = true, userNavbar = true}) => {
     const dispatch = useDispatch();
@@ -16,9 +16,9 @@ const DashboardLayout = ({children, breadCrumb = true, userNavbar = true}) => {
     }, [dispatch])
 
     return (
-        <>
+        <div className={'flex flex-col bg-black w-full min-h-screen'}>
             <Header />
-            <Main>
+            <Main >
                 {breadCrumb && (
                     <BreadCrumb user={user} />
                 )}
@@ -27,7 +27,7 @@ const DashboardLayout = ({children, breadCrumb = true, userNavbar = true}) => {
                 )}
                 {children}
             </Main>
-        </>
+        </div>
     );
 };
 
