@@ -13,7 +13,9 @@ const Festivals = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllFestivals())
+        if (festivals.length === 0) {
+            dispatch(getAllFestivals())
+        }
     }, [dispatch])
 
     return (

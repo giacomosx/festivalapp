@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 const FestivalCard = ({item}) => {
     return (
         <div
-            className="max-w-sm  border border-gray-200 rounded-lg shadow bg-black  flex flex-col">
+            className="max-w-sm  border border-gray-200 rounded shadow bg-black  flex flex-col">
             <Link to="#" className={'block h-48'}>
-                <img className="rounded-t-lg w-full h-full object-cover" src="https://picsum.photos/1200/800" alt=""/>
+                <img className="rounded-t w-full h-full object-cover" src="https://picsum.photos/1200/800" alt=""/>
             </Link>
             <div className="p-5 flex-1">
                 <a href="#">
@@ -15,9 +15,9 @@ const FestivalCard = ({item}) => {
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.description}</p>
             </div>
             <div className={'px-5 pb-5'}>
-                <Link to="#"
-                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">
-                    Read more
+                <Link to={`/festivals/${item.name.toLowerCase().replaceAll(' ', '-')}?id=${item._id}`}
+                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-primary rounded-lg hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">
+                    View more
                     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"

@@ -9,6 +9,7 @@ import Settings from "./pages/Settings";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import Festivals from "./pages/Festivals";
+import SingleFestival from "./pages/SingleFestival";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
         <Route path={'/festivals'} element={<Festivals />} />
+        <Route path={'/festivals/:slug'} element={<SingleFestival />} />
         <Route element={<ProtectedRoutes />}>
           <Route path={'/dashboard/home'} element={<UserDashboard />} />
           <Route path={'/dashboard/users'} element={<Users />} />

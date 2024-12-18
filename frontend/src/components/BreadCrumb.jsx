@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 
 const BreadCrumb = ({backgroundColor = 'bg-black'}) => {
     const isBlack = backgroundColor === 'bg-black';
     const location = useLocation();
+    const urlSegments = location.pathname.split('/').slice(1);
 
     return (
         <nav className="flex mt-4" aria-label="Breadcrumb">
@@ -19,17 +20,24 @@ const BreadCrumb = ({backgroundColor = 'bg-black'}) => {
                         Home
                     </Link>
                 </li>
-                <li>
-                    <div className="flex items-center">
-                        <svg className="rtl:rotate-180 w-3 h-3 text-gray-500 mx-1" aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                  d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <Link to={'/community'}
-                              className={`ms-1 text-sm font-medium hover:text-primary md:ms-2 ${isBlack ? 'text-gray-300' : 'text-gray-400'} `}>{location.pathname.replaceAll('/', '')}</Link>
-                    </div>
-                </li>
+                {urlSegments.map((item, index) => (
+                    <li key={index}>
+                        <div className="flex items-center">
+                            {item !== '' && (
+                                <svg className="rtl:rotate-180 w-3 h-3 text-gray-500 mx-1" aria-hidden="true"
+                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
+                                          strokeWidth="2"
+                                          d="m1 9 4-4-4-4"/>
+                                </svg>
+                            )}
+
+                            <span
+                                  className={`ms-1 text-sm font-medium hover:text-primary md:ms-2 ${isBlack ? 'text-gray-300' : 'text-gray-400'} `}>
+                                {item.charAt(0).toUpperCase() + item.split('').slice(1).join('').replaceAll('-', ' ')}
+                            </span>
+                        </div>
+                    </li>))}
             </ol>
         </nav>
 

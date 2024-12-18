@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Layout from "../Layout";
 import {useParams} from "react-router-dom";
 import Widget from "../components/Widget";
 import Avatar from "../components/Avatar";
