@@ -8,5 +8,6 @@ publicRoutes.route('/users').get(userController.getAllUsers);
 publicRoutes.route('/organizations').get(organizationController.getAllOrganizations)
 publicRoutes.route('/events').get(eventController.getAllEvents);
 publicRoutes.route('/events/:id').get(eventController.getEventById);
+publicRoutes.route('/events/slug/:slug').get(eventController.getEventBySlug);
 
 module.exports = publicRoutes;

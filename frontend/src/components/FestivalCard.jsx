@@ -10,12 +10,12 @@ const FestivalCard = ({item}) => {
             </Link>
             <div className="p-5 flex-1">
                 <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.name}</h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.description}</p>
+                <p className="mb-3 font-normal text-gray-400 ">{item.description}</p>
             </div>
             <div className={'px-5 pb-5'}>
-                <Link to={`/festivals/${item.name.toLowerCase().replaceAll(' ', '-')}?id=${item._id}`}
+                <Link to={`/festivals/${item.slug}`}
                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-primary rounded-lg hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary">
                     View more
                     <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"

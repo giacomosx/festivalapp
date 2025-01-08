@@ -22,6 +22,17 @@ const getEventById = async (req, res) => {
     }
 }
 
+const getEventBySlug = async (req, res) => {
+    const {slug} = req.params
+    try {
+        const event = await Event.findOne({slug: slug}).populate('owner');
+
+        return res.status(200).json(event)
+    } catch (e) {
+        res.status(500).json({message: e.message})
+    }
+}
+
 const createEvent = async (req, res) => {
     const { userId, role } = req.user
 
@@ -145,6 +156,7 @@ const addActToEvent = async (req, res) => {
 module.exports = {
     getAllEvents,
     getEventById,
+    getEventBySlug,
     createEvent,
     subScribeEvent,
     unSubScribeEvent,

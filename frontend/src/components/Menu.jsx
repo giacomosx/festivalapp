@@ -121,7 +121,7 @@ const Menu = () => {
                     return (
                         <li key={index}>
                           <Link
-                              to={`/festivals/${el.name.toLowerCase().replace(/ /g, '-')}`}
+                              to={`/festivals/${el.slug}`}
                               className="text-gray-600  hover:text-primary w-full block"
                           >
                             {el.name}

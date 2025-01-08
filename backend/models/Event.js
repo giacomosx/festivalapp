@@ -41,11 +41,15 @@ const EventSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Organization',
             required: true,
-        }
+        },
+        slug: {
+            type: String,
+            required: true,
+            unique: true,
+        },
     },
     {
-        timestamps: true,
-        strict: true
+        timestamps: true
     })
 
 EventSchema.index({name: 1, description: 1, location: 1, start_date: 1})
