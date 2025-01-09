@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const InboxSchema = new mongoose.Schema(
+const GroupRequestSchema = new mongoose.Schema(
     {
         sender: {
             type: mongoose.Schema.Types.ObjectId,
@@ -12,9 +12,18 @@ const InboxSchema = new mongoose.Schema(
             ref: 'User',
             required: true,
         },
+        status: {
+            type: String,
+            enum: ['pending', 'accepted', 'rejected'],
+            default: 'pending',
+            required: true,
+        },
         message: {
             type: String,
-            required: true,
+        },
+        group: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Group',
         }
     },
     {
@@ -24,4 +33,4 @@ const InboxSchema = new mongoose.Schema(
 );
 
 
-module.exports = mongoose.model('Inbox', InboxSchema, 'inboxes');
+module.exports = mongoose.model('GroupRequest', GroupRequestSchema, 'grouprequests');

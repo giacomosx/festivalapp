@@ -9,6 +9,8 @@ const userRoutes = require('./routes/user')
 const eventRoutes = require('./routes/event');
 const organizationRoutes = require('./routes/organization');
 const friendRequestRoutes = require('./routes/friendRequest');
+const groupRoutes = require('./routes/group');
+const groupRequestRoutes = require('./routes/groupRequest');
 
 const authMid = require('./middlewares/tokenController')
 
@@ -27,6 +29,8 @@ server.use('/api/v1/user', userRoutes)
 server.use('/api/v1/event', eventRoutes)
 server.use('/api/v1/organization', organizationRoutes)
 server.use('/api/v1/request', friendRequestRoutes )
+server.use('/api/v1/group', groupRoutes)
+server.use('/api/v1/group-request', groupRequestRoutes)
 
 const startServer = async () => {
     try {
