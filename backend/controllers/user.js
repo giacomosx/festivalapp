@@ -50,6 +50,24 @@ const getUserEvents = async (req, res) => {
 
 }
 
+const getUserGroups = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.userId).populate({
+            path: 'groups',
+            select: 'name description',
+            options: {sort: {updatedAt: -1}}
+        })
+
+        if (!user) res.status(401).json('Invalid user Id')
+
+        res.status(200).json(user)
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message })
+    }
+
+}
+
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find()
@@ -127,4 +145,5 @@ module.exports = {
     deleteUser,
     getUserFriends,
     getUserEvents,
+    getUserGroups
 }

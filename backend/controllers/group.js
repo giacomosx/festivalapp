@@ -1,5 +1,6 @@
 const Group = require('../models/group');
 const User = require("../models/User");
+const mongoose = require("mongoose");
 
 const createGroup = async (req, res) => {
     const {body, user: {userId}} = req;
@@ -31,6 +32,20 @@ const createGroup = async (req, res) => {
 const getAllGroups = async (req, res) => {
     try {
         const groups = await Group.find({})
+
+        return res.status(200).json(groups)
+    } catch (e) {
+        console.log(e)
+        res.status(500).json({message: e.message})
+    }
+}
+
+const getAllGroupByMember = async (req, res) => {
+    const {params} = req;
+    try {
+        const groups = await Group.find({
+            members: new mongoose.Types.ObjectId(params),
+        })
 
         return res.status(200).json(groups)
     } catch (e) {
@@ -122,4 +137,5 @@ module.exports = {
     getGroupByID,
     deleteGroup,
     updateGroup,
+    getAllGroupByMember
 }
