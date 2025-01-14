@@ -57,7 +57,7 @@ const GroupRequestsList = () => {
             {loading && <Spinner />}
             {
                 requests && (requests.length > 0 ? (
-                    <ul className={'flex flex-col w-full divide-y divide-black'}>
+                    <ul className={'flex flex-col w-full divide-y divide-black overflow-y-hidden'}>
                         {
                             requests.map((request) => (
                                 <li className={'py-4 '} key={request._id}>

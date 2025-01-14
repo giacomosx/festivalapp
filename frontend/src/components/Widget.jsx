@@ -15,7 +15,7 @@ const Widget = ({children, name, buttonLabel, path, className = '', bodyClassNam
             ) :
             ''}
             </div>
-            <div className={bodyClassName + ' h-auto '}>
+            <div className={bodyClassName + 'item-body'}>
                 {children}
             </div>
         </section>

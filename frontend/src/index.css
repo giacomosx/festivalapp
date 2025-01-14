@@ -39,11 +39,17 @@
     transform: translateY(-10px);
   }*/
 
+  .item-body {
+    position: relative;
+    overflow-y: hidden!important;
+    max-height: 60rem;
+  }
+
   .festivals { grid-row: span 10;  }
   .groups { grid-row: span 14;  }
-  .requests { grid-row: span 7;  }
+  .requests { grid-row: span 4;  }
+  .group-requests { grid-row: span 4;  }
   .friends { grid-row: span 10;  }
-  .groupInfo { grid-row: span 7;  }
   .item6 { grid-row: span 15;  }
   .item7 { grid-row: span 20;  }
   .item8 { grid-row: span 10;  }

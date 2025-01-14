@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import {Link} from "react-router-dom";
 import Button from "./Button";
 
-const UsersListEl = ({user}) => {
+const UsersListEl = ({user, invite}) => {
     const basePath = `/community/profile/${user._id}`;
 
     return (
@@ -16,9 +16,13 @@ const UsersListEl = ({user}) => {
                         {user.name && <p className={'text-gray-400 text-sm'}>{user.name}</p>}
                     </div>
                 </div>
-                <Button variant={'secondary'}>
-                    <Link to={basePath}>View</Link>
-                </Button>
+                {invite ? (
+                    <Button>Invite</Button>
+                ) : (
+                    <Button variant={'secondary'}>
+                        <Link to={basePath}>View</Link>
+                    </Button>
+                )}
             </div>
         </li>
     );

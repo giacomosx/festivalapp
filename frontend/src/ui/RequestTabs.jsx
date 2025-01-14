@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import AxiosApi from "../api/axiosApi";
 import Avatar from "../components/Avatar";
 import {Link} from "react-router-dom";
+import FriendsList from "./FriendsList";
+import Input from "../components/Input";
+import Label from "../components/Label";
 
 const RequestTabs = () => {
     const api = new AxiosApi()
@@ -64,6 +67,26 @@ const RequestTabs = () => {
             <div>
                 <div className={`${tab !== 'invite' && 'hidden'}`} role="tabpanel"
                      aria-labelledby="invite-tab">
+                    <div className="mb-5 w-full">
+                        <label
+                            htmlFor="email"
+                            className="block mb-2 text-base font-medium "
+                        >
+                            Search user
+                        </label>
+                        <input
+                            name="email"
+                            type="email"
+                            id="email"
+                            className="bg-gray-100 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 "
+                            placeholder="name@festvalapp.com"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <FriendsList invite={true}/>
+                    </div>
 
                 </div>
                 <div className={`${tab !== 'pending' && 'hidden'}`} role="tabpanel"

@@ -5,6 +5,7 @@ import Avatar from "../components/Avatar";
 import AxiosApi from "../api/axiosApi";
 import Spinner from "../components/Spinner";
 import DashboardLayout from "../layouts/DashboardLayout";
+import Button from "../components/Button";
 
 const UserProfile = () => {
     const {id} = useParams();
@@ -12,6 +13,7 @@ const UserProfile = () => {
     const [error, setError] = useState(null);
     const [user, setUser] = useState({});
     const api = new AxiosApi()
+    const [loadingButton, setLoadingButton] = useState(false);
 
     const getUser = async () => {
         try {
@@ -21,6 +23,19 @@ const UserProfile = () => {
             console.log(err);
         } finally {
             setLoading(false);
+        }
+    }
+
+    const addUser = async () => {
+        setLoadingButton(true);
+        try {
+            const response = await api.post(`/request/add-request/${id}`)
+
+        } catch (e) {
+            console.log(e);
+            setError(e.message);
+        } finally {
+            setLoadingButton(false);
         }
     }
 
@@ -67,6 +82,14 @@ const UserProfile = () => {
                                         <span className={'text-2xl text-gray-300'}>{user.pinned_acts.length}</span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div className={'p-4'}>
+                                {loadingButton ? (
+                                    <Spinner/>
+                                ) :
+                                    (
+                                        <Button className={'w-full'} size={'md'} onClick={addUser}>Send a friend request</Button>
+                                    )}
                             </div>
                         </div>
                     )}

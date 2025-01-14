@@ -37,18 +37,12 @@ const UserDashboard = () => {
                     <GroupList/>
                 </Widget>
 
-                <Widget name={"Incoming Requests"} bodyClassName=" px-2" className={'requests'}>
-                    <div
-                        className="flex items-center flex-col justify-between h-full divide-y divide-gray-900 space-y-4">
-                        <div className="w-full py-2.5">
-                            <h3 className={'mb-4'}>Friendship request:</h3>
-                            <RequestsList/>
-                        </div>
-                        <div className="w-full py-2.5">
-                            <h3 className={'mb-4'}>Groups request:</h3>
-                            <GroupRequestsList/>
-                        </div>
-                    </div>
+                <Widget name={"Friendship request"} bodyClassName=" px-2" className={'requests'}>
+                    <RequestsList/>
+                </Widget>
+
+                <Widget name={"Group request"} bodyClassName=" px-2" className={'group-requests'}>
+                    <GroupRequestsList/>
                 </Widget>
 
                 <Widget name={'Friends'} className={'friends'}>

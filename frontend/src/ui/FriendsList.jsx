@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import Button from "../components/Button";
 import UsersListEl from "../components/UsersListEl";
 
-const FriendsList = () => {
+const FriendsList = ({invite}) => {
     const api = new AxiosApi()
     const [friends, setFriends] = useState([])
     const [loading, setLoading] = useState(true)
@@ -36,7 +36,7 @@ const FriendsList = () => {
                     <ul className={'flex flex-col w-full divide-y divide-black'}>
                         {
                             friends.map((friend) => (
-                                <UsersListEl user={friend} key={friend._id}/>
+                                <UsersListEl user={friend} key={friend._id} invite={invite} />
                             ))
                         }
                     </ul>
