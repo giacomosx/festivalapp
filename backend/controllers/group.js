@@ -30,34 +30,36 @@ const createGroup = async (req, res) => {
 }
 
 const getAllGroups = async (req, res) => {
-    try {
-        const groups = await Group.find({})
+    const {user} = req.query;
+    if (!user) {
+        try {
+            const groups = await Group.find({})
 
-        return res.status(200).json(groups)
-    } catch (e) {
-        console.log(e)
-        res.status(500).json({message: e.message})
+            return res.status(200).json(groups)
+        } catch (e) {
+            console.log(e)
+            res.status(500).json({message: e.message})
+        }
+    } else {
+        const userId = req.user.userId;
+        try {
+            const groups = await Group.find({
+                members: userId,
+            });
+
+            return res.status(200).json(groups);
+        } catch (e) {
+            console.log(e);
+            res.status(500).json({ message: e.message });
+        }
     }
 }
 
-const getAllGroupByMember = async (req, res) => {
-    const {params} = req;
-    try {
-        const groups = await Group.find({
-            members: new mongoose.Types.ObjectId(params),
-        })
-
-        return res.status(200).json(groups)
-    } catch (e) {
-        console.log(e)
-        res.status(500).json({message: e.message})
-    }
-}
 
 const getGroupByID = async (req, res) => {
     const {id} = req.params
     try {
-        const group = await Group.findById(id)
+        const group = await Group.findById(id).populate('members event');
         if (!group) {
             return res.status(404).json({message: 'Group not found'})
         }
@@ -137,5 +139,4 @@ module.exports = {
     getGroupByID,
     deleteGroup,
     updateGroup,
-    getAllGroupByMember
 }

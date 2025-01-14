@@ -6,10 +6,13 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import loginReducer from './redux/loginSlice'
 import festivalReducer from './redux/festivalSlice'
+import groupModalReducer from './redux/groupModalSlice'
+
 
 const rootReducer = combineReducers({
     loginState: loginReducer,
-    festivalState: festivalReducer
+    festivalState: festivalReducer,
+    groupModalState: groupModalReducer,
 })
 
 const store = configureStore({

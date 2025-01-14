@@ -16,7 +16,7 @@ const DashboardLayout = ({children, breadCrumb = true, userNavbar = true}) => {
     }, [dispatch])
 
     return (
-        <div className={'flex flex-col bg-black w-full min-h-screen'}>
+        <div className={'flex flex-col bg-black w-full min-h-screen relative'}>
             <Header />
             <Main >
                 {breadCrumb && (

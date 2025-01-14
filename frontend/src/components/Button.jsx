@@ -19,7 +19,7 @@ const Button = ({
                     disabled,
                     size
                 }) => {
-    const baseStyle = "focus:ring-1 focus:outline-none rounded-lg sm:w-auto py-2.5 text-center transition-all duration-200";
+    const baseStyle = "focus:ring-1 focus:outline-none rounded-lg py-2.5 text-center transition-all duration-200 ";
     const variantClasses = variantStyles[variant] || variantStyles["primary"];
     const sizeClasses = sizeStyles[size] || sizeStyles["xs"];
 

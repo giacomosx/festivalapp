@@ -14,7 +14,7 @@ const Avatar = ({user, path, size = 'sm'}) => {
     return (
         <Link
             to={path}
-            className={`${sizeStyle} leading-none flex justify-center items-center text-black bg-primary hover:bg-primary-hover focus:ring-2 focus:ring-primary rounded-full transition-all`}
+            className={`${sizeStyle} border-gray-800 border-2 leading-none flex justify-center items-center text-black bg-primary hover:bg-primary-hover focus:ring-2 focus:ring-primary rounded-full transition-all`}
         >
             {getInitials(user?.name || user?.username)}
         </Link>

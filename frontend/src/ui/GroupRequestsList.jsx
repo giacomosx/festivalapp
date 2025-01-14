@@ -5,7 +5,7 @@ import Avatar from "../components/Avatar";
 import {Link} from "react-router-dom";
 import Button from "../components/Button";
 
-const RequestsList = () => {
+const GroupRequestsList = () => {
     const api = new AxiosApi()
     const [requests, setRequests] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -13,7 +13,7 @@ const RequestsList = () => {
 
     const getRequests = async () => {
         try {
-            const requests = await api.get(`request/received`);
+            const requests = await api.get(`group-request/received`);
             console.log(requests)
             setRequests(requests)
         } catch (e) {
@@ -26,7 +26,7 @@ const RequestsList = () => {
 
     const acceptRequest = async (id) => {
         try {
-            const response = await api.patch(`request/response-request/${id}`, {
+            const response = await api.patch(`group-request/response-request/${id}`, {
                 response : 'accepted'
             });
             setRequests(requests.filter((r) => r._id !== id))
@@ -38,7 +38,7 @@ const RequestsList = () => {
 
     const declineRequest = async (id) => {
         try {
-            const response = await api.patch(`request/response-request/${id}`, {
+            const response = await api.patch(`group-request/response-request/${id}`, {
                 response : 'rejected'
             });
             setRequests(requests.filter((r) => r._id !== id))
@@ -63,10 +63,10 @@ const RequestsList = () => {
                                 <li className={'py-4 '} key={request._id}>
                                     <div className={'flex items-center gap-4 justify-between md:flex-row'}>
                                         <div className={'flex items-center gap-2 '}>
-                                            <Avatar user={request?.senderId} path={'/'} size={'xs'}/>
+                                            <Avatar user={request?.sender} path={`/community/profile/${request.sender._id}`} size={'xs'}/>
                                             <div>
-                                                <Link to={'/'} className={'hover:underline'}>{request.senderId.username}</Link>
-                                                {request.senderId.name && <p className={'text-gray-400 text-sm'}>{request.senderId.name}</p>}
+                                                <Link to={`/community/profile/${request.sender._id}`} className={'hover:underline'}>{request.sender.username}</Link>
+                                                {request.sender.name && <p className={'text-gray-400 text-sm'}>{request.sender.name}</p>}
                                             </div>
                                         </div>
                                         <div className={'flex items-center gap-2 '}>
@@ -93,4 +93,4 @@ const RequestsList = () => {
     );
 };
 
-export default RequestsList;
+export default GroupRequestsList;

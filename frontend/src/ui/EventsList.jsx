@@ -13,7 +13,7 @@ const EventsList = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const getFriends = async () => {
+    const getEvents = async () => {
         try {
             const responses = await api.get(`/user/me/events`);
             setEvents(responses.events)
@@ -26,7 +26,7 @@ const EventsList = () => {
     }
 
     useEffect(() => {
-        getFriends()
+        getEvents()
     }, [])
 
     return (

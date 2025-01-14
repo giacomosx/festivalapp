@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import AxiosApi from "../api/axiosApi";
 import Spinner from "../components/Spinner";
-import Avatar from "../components/Avatar";
-import {Link} from "react-router-dom";
-import Button from "../components/Button";
-import UsersListEl from "../components/UsersListEl";
-import EventsListEl from "../components/EventsListEl";
+import GroupListEl from "../components/GroupListEl";
 
-const EventsList = () => {
+const GroupList = () => {
     const api = new AxiosApi()
-    const [events, setEvents] = useState([])
+    const [groups, setGroups] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const getEvents = async () => {
+    const getGroups = async () => {
         try {
-            const responses = await api.get(`/user/me/events`);
-            setEvents(responses.events)
+            const responses = await api.get(`/group?user=me`);
+            setGroups(responses)
+            console.log(groups)
         } catch (e) {
             console.error(e)
             setError(e.message)
@@ -26,24 +23,24 @@ const EventsList = () => {
     }
 
     useEffect(() => {
-        getEvents()
+        getGroups()
     }, [])
 
     return (
         <>
-            {loading && <Spinner />}
+            {loading && <Spinner/>}
             {
-                events && (events.length > 0 ? (
+                groups && (groups.length > 0 ? (
                     <ul className={'flex flex-col w-full divide-y divide-black'}>
                         {
-                            events.map((event) => (
-                                <EventsListEl key={event._id} event={event} />
+                            groups.map((group) => (
+                                <GroupListEl key={group._id} group={group}/>
                             ))
                         }
                     </ul>
                 ) : (
                     <p className={'text-gray-400 w-full text-center text-base'}>
-                        No events for now!
+                        No groups for now!
                     </p>
 
                 ))
@@ -52,4 +49,4 @@ const EventsList = () => {
     );
 };
 
-export default EventsList;
+export default GroupList;

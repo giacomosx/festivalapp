@@ -10,6 +10,7 @@ import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import Festivals from "./pages/Festivals";
 import SingleFestival from "./pages/SingleFestival";
+import Group from "./pages/Group";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path={'/dashboard/users'} element={<Users />} />
           <Route path={'/dashboard/settings'} element={<Settings />} />
           <Route path={'/community/profile/:id'} element={<UserProfile />} />
+          <Route path={'/groups/:id'} element={<Group />} />
         </Route>
       </Routes>
     </BrowserRouter>

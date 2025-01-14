@@ -78,9 +78,6 @@ const Users = () => {
                     <Widget name={'Friends'}>
                         <FriendsList />
                     </Widget>
-                    <Widget name={'My Requests'}>
-                        <RequestTabs />
-                    </Widget>
                 </div>
             </section>
 

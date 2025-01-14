@@ -9,7 +9,7 @@ const EventsListEl = ({event}) => {
     return (
         <li className={'py-2.5 '}>
             <div className={'flex items-center gap-4 justify-between'}>
-                <div className={'flex items-center gap-4'}>
+                <div className={'flex items-center gap-4 '}>
                     <div>
                         <Link to={basePath} className={'hover:underline'}>{event.name}</Link>
                         {/*{event.name && <p className={'text-gray-400 text-sm'}>{event.name}</p>}*/}

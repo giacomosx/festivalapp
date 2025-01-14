@@ -17,10 +17,10 @@ const loginSlice = createSlice({
             state.user = JSON.parse(localStorage.getItem("userData")) || null
         },
         logout: (state) => {
+            localStorage.removeItem('userData')
+            localStorage.removeItem('token')
             state.isLoggedIn = null
             state.user = null
-            localStorage.removeItem('token')
-            localStorage.removeItem('userData')
         }
     },
     extraReducers: builder => {
